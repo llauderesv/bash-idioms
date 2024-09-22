@@ -1,0 +1,27 @@
+#!/bin/bash
+
+var="yesss"
+
+# case "$var" in
+#   yes ) echo "glad you agreed" ;;
+#   no )
+#     echo "sorry; good bye!"
+#     exit
+#   ;;
+#   * ) echo "invalid answer, try again" ;; 
+# esac
+
+
+case "$var" in
+  [Nn][Oo]* )
+    echo "Fine. Leave then."
+    exit
+  ;;
+  [Yy]?? | [Ss]ure | [Oo][Kk]* )
+    echo "OK. Glad we agree."
+    exit
+  ;;
+  * ) echo "Try again."
+      continue
+  ;;
+esac
