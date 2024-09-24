@@ -114,5 +114,17 @@ But the preferred way is the POSIX `$()`
 
 When referencing a variable in bash, you have the opportunity to edit the value as you set or retrieve it. A few special characters at the end of the variable reference can remove characters from the front or end of the string value, alter its characters to upper- or lowercase, substitute characters, or give you just a substring of the original value. Common use of these handy features results in idioms for default values, and substitutes, and the creation of a comma-separated list without using an explicit statement.
 
+> [!IMPORTANT]
+> Command Substitution
+> Command Substitution is critical to cloud and other DevOps automation because it allows you to gather and use all the IDs and details that only exist at runtime; for example
+
+```bash
+instance_id=$(aws ec2 run-instances --image $base_ami_id ... \
+  --output text --query 'Instances[*].InstanceId')
+
+stage=$(aws ec2 describe-instances --instance-ids $instance_id \
+  --output text --query 'Reservations[*].Instances[*].State.Name')
+```
+
 > [!NOTE]
 > Variable substitutions are a great feature in bash, and we recommend making good use of them. However, we also strongly recommend that you comment those statements to make it clear what sort of substitution you are attempting. The next reader of your code will thank you.
