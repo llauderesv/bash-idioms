@@ -204,3 +204,6 @@ function Bar {
 
 # Code...
 ~~~~
+
+## Additional Resources
+- [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html)
